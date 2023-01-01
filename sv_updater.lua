@@ -10,7 +10,6 @@ local function versionCheck(repository)
 		PerformHttpRequest(('https://raw.githubusercontent.com/%s/main/fxmanifest.lua'):format(repository), function(status, response)
 			if status ~= 200 then return end
 			local latestVersion = response:match("%sversion \'(.-)\'")
-			print(currentVersion, latestVersion)
 			if not latestVersion or latestVersion == currentVersion then return print(('[INFO] ^2%s^0 is up to date (current version: ^2%s^0)'):format(resource, currentVersion)) end
             local cv = { string.strsplit('.', currentVersion) }
             local lv = { string.strsplit('.', latestVersion) }
