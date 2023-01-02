@@ -128,7 +128,7 @@ function DrawMarkerThread(coords)
         while inMarkerZone do
             local pcoords = GetEntityCoords(playerPed)
             local distance = #(pcoords - coords)
-            DrawMarker(3, coords, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.2, 0.2, 251, 108, 1, 204, false, true, 2, true, false, false, false)
+            DrawMarker(3, coords.x, coords.y, coords.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.2, 0.2, 251, 108, 1, 204, false, true, 2, true, false, false, false)
             if distance <= 1.0 then
                 if not menuIsShowed then
                     ESX.TextUI(TranslateCap('push_refill'))
