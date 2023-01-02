@@ -8,4 +8,6 @@ Locales['es'] = {
     ['diving_fins'] = 'Buceo con aletas de natación',
     ['diving_no_fins'] = 'Bucear sin aletas de natación',
     ['push_refill'] = 'Pulsa [E] para rellenar el tanque de oxígeno',
+    ['push_refill_pay'] = 'Cantidad pagada por recarga de oxígeno: ',
+    ['no_money'] = 'No tienes suficiente dinero'
 }
