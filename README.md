@@ -11,7 +11,7 @@ This resource handles scuba equipment for players with usable item and player pe
 - Scuba fins, provides different leg movement style while diving.
 
 - Preview
-![preview](https://cdn.discordapp.com/attachments/1058722928147038269/1059145768897884231/image.png)
+![preview](https://cdn.discordapp.com/attachments/1058722928147038269/1059312413574451340/image.png)
 
 - Swim style with fins
 ![preview](https://cdn.discordapp.com/attachments/1058722928147038269/1059147393230196796/image.png)
