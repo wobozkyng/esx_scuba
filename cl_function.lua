@@ -131,7 +131,7 @@ function DrawMarkerThread(coords)
             DrawMarker(3, coords, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.2, 0.2, 251, 108, 1, 204, false, true, 2, true, false, false, false)
             if distance <= 1.0 then
                 if not menuIsShowed then
-                    ESX.TextUI('press [E] to refill oxygen tank')
+                    ESX.TextUI(TranslateCap('push_refill'))
                     menuIsShowed = true
                 end
                 if IsControlJustPressed(0, 38) and (GetGameTimer() - GUI.Time) > 2000 then
