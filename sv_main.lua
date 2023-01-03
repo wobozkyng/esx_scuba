@@ -40,9 +40,9 @@ RegisterNetEvent('esx_scuba:oxygenRefillPay', function()
 	end
 	local canPay = xPlayer.getMoney() >= Config.refillPrice
 	if not canPay then
-		return xPlayer.showNotification('Do not have enough money')
+		return xPlayer.showNotification(TranslateCap('no_money'))
 	end
 	xPlayer.removeMoney(Config.refillPrice)
 	xPlayer.triggerEvent('esx_scuba:oxygenHandle', 'refill', 100)
-	xPlayer.showNotification(('Paid amount %s%s for oxygen refill'):format(Config.Currency, Config.refillPrice))
+	xPlayer.showNotification(TranslateCap('push_refill_pay').. Config.Currency .. Config.refillPrice)
 end)

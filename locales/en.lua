@@ -6,5 +6,8 @@ Locales['en'] = {
     ['tank_available'] = 'Oxygen tank available with %s %s capacity',
     ['tank_not_available'] = 'Oxygen tank not available',
     ['diving_fins'] = 'Diving with swimming fins',
-    ['diving_no_fins'] = 'Diving without swimming fins'
+    ['diving_no_fins'] = 'Diving without swimming fins',
+    ['push_refill'] = 'Press [E] to refill oxygen tank',
+    ['push_refill_pay'] = 'Paid amount for oxygen refill: ',
+    ['no_money'] = 'Do not have enough money'
 }

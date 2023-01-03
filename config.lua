@@ -1,5 +1,6 @@
 Config  = {}
 
+Config.Locale = 'en'
 Config.scubaItemName = 'scuba_set'
 Config.finsItemName = 'scuba_fins'
 
