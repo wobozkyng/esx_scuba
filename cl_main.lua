@@ -3,10 +3,21 @@ local oxy_tank = false
 local oxy_value = 0
 local diving_swim = false
 local ox_inventory = GetResourceState('ox_inventory') == 'started' or GetResourceState('ox_inventory') == 'starting'
+local current_scuba
 
 Config.OxInventory = ox_inventory
 
+-- exports return current oxygen capacity (percentage)
+exports("getoxy", function()
+    return current_scuba and oxy_value/Config.fulltank*100 or 0
+end)
+
 RegisterNetEvent('esx_scuba:oxygenHandle', function(type, value) --event to handle tank refill
+    local playerPed = PlayerPedId()
+    local pedModel = GetEntityModel(playerPed)
+    if not isWearingScuba(playerPed, pedModel) then
+        return sendnotification(TranslateCap('not_equipped'))
+    end
     local itemcount = getScubaItemCount(Config.scubaItemName)
     if itemcount < 1 then
         return sendnotification(TranslateCap('no_tank'))
@@ -14,6 +25,12 @@ RegisterNetEvent('esx_scuba:oxygenHandle', function(type, value) --event to hand
     if type == 'refill' then
         oxy_value = value and value*4 or 400
         sendnotification(TranslateCap('tank_loaded', oxy_value/Config.fulltank*100, '%'))
+        if Config.OxInventory then
+            TriggerServerEvent("esx_scuba:updateMetadata", {
+                slot = current_scuba,
+                oxy = oxy_value/Config.fulltank*100
+            })
+        end
     end
     if type == 'check' then
         sendnotification(TranslateCap('tank_capacity', oxy_value/Config.fulltank*100, '%'))
@@ -55,24 +72,24 @@ if Config.OxInventory then
     -- exports for ox_inventory
     exports('wear', function(data, slot)
         TriggerEvent('esx_scuba:wear', data.name)
+        if data.name ~= "scuba_set" then
+            return
+        end
+        current_scuba = current_scuba and nil or slot.slot
+        oxy_value = slot.metadata?.oxy and slot.metadata.oxy*4 or 0
+        if current_scuba then
+            TriggerServerEvent("esx_scuba:equip", {slot = slot.slot})
+            TriggerServerEvent("esx_scuba:updateMetadata", {
+                slot = current_scuba,
+                oxy = oxy_value/Config.fulltank*100
+            })
+        end
     end)
 
-    -- ox_inventory updates check
-    AddEventHandler('ox_inventory:updateInventory', function(changes)
-        local playerPed = PlayerPedId()
-        local pedModel = GetEntityModel(playerPed)
-        if isWearingScuba(playerPed, pedModel) or isWearingScuba(playerPed, pedModel, true) then
-            local equipment = {
-                Config.scubaItemName,
-                Config.finsItemName
-            }
-            local items = exports.ox_inventory:Search('count', equipment)
-            for i = 1, #equipment do
-                local name = equipment[i]
-                if items[name] < 1 then
-                    applyScuba(name, playerPed, pedModel).resetScuba()
-                end
-            end
+    RegisterNetEvent("esx_scuba:updateCurrent", function(data)
+        current_scuba = data.slot
+        if current_scuba == nil then
+            TriggerEvent('esx_scuba:wear', "scuba_set")
         end
     end)
 
@@ -97,6 +114,10 @@ else
     -- usable item client event
     RegisterNetEvent('esx_scuba:useItem', function(name)
         TriggerEvent('esx_scuba:wear', name)
+        if name ~= "scuba_set" then
+            return
+        end
+        current_scuba = current_scuba and nil or 1
     end)
 
     -- esx inventory remove item check
@@ -163,6 +184,12 @@ CreateThread(function()
                 end
                 break
             end
+        end
+        if current_scuba and Config.OxInventory then
+            TriggerServerEvent("esx_scuba:updateMetadata", {
+                slot = current_scuba,
+                oxy = oxy_value/Config.fulltank*100
+            })
         end
         Wait(1000) --each seconds
     end

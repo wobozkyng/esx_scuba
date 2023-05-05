@@ -15,6 +15,7 @@ dependencies {
 shared_script {
     '@es_extended/imports.lua',
     '@es_extended/locale.lua',
+    'shared.lua',
     'locales/*.lua'
 }
 

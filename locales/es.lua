@@ -9,5 +9,6 @@ Locales['es'] = {
     ['diving_no_fins'] = 'Bucear sin aletas de natación',
     ['push_refill'] = 'Pulsa [E] para rellenar el tanque de oxígeno',
     ['push_refill_pay'] = 'Cantidad pagada por recarga de oxígeno: ',
-    ['no_money'] = 'No tienes suficiente dinero'
+    ['no_money'] = 'No tienes suficiente dinero',
+    ['not_equipped'] = 'No equipando tanque de oxigeno por el momento'
 }

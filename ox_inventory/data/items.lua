@@ -3,6 +3,7 @@ return {
 		label = 'Scuba Set',
 		weight = 2000,
 		description = 'Diving equipment, longer underwater',
+		stack = false,
 		client = {
 			export = 'esx_scuba.wear'
 		}
@@ -11,6 +12,7 @@ return {
 		label = 'Scuba Fins',
 		weight = 200,
 		description = 'Diving equipment, swimming assitance',
+		stack = false,
 		client = {
 			export = 'esx_scuba.wear'
 		}
