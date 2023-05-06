@@ -4,7 +4,7 @@ lua54        'yes'
 game 'gta5'
 
 name 'esx_scuba'
-version '1.1.1'
+version '1.2.0'
 description 'FiveM resource to handle scuba based on ped component variation set'
 author 'wobozkyng'
 
