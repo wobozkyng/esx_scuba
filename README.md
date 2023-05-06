@@ -9,6 +9,8 @@ This resource handles scuba equipment for players with usable item and player pe
 - Tank refill feature, locations can be set in config.
 - Included with scuba flashlight on/off feature.
 - Scuba fins, provides different leg movement style while diving.
+- If using ox_inventory, enables to save oxygen capacity value on item metadata.
+- Function exports to get current oxygen tank capacity.
 
 - Preview
 ![preview](https://cdn.discordapp.com/attachments/1058722928147038269/1059312413574451340/image.png)
@@ -39,7 +41,7 @@ This resource handles scuba equipment for players with usable item and player pe
 
 esx_scuba
 
-Copyright (C) 2022 [wobozkyng](https://github.com/wobozkyng)
+Copyright (C) 2023 [wobozkyng](https://github.com/wobozkyng)
 
 This program Is free software: you can redistribute it And/Or modify it under the terms Of the GNU General Public License As published by the Free Software Foundation, either version 3 Of the License, Or (at your option) any later version.
 
