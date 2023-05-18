@@ -147,7 +147,7 @@ function DrawMarkerThread(coords)
             if menuIsShowed then
                 ESX.HideUI()
                 menuIsShowed = false
-            end                
+            end
             ::skip1::
             Wait()
         end

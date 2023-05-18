@@ -73,7 +73,7 @@ else
 		if not xPlayer then
 			return
 		end
-		xPlayer.triggerEvent('esx_scuba:useItem', Config.scubaItemName)		
+		xPlayer.triggerEvent('esx_scuba:useItem', Config.scubaItemName)
 	end)
 
 	ESX.RegisterUsableItem(Config.finsItemName, function(source)
@@ -82,7 +82,7 @@ else
 		if not xPlayer then
 			return
 		end
-		xPlayer.triggerEvent('esx_scuba:useItem', Config.finsItemName)		
+		xPlayer.triggerEvent('esx_scuba:useItem', Config.finsItemName)
 	end)
 end
 

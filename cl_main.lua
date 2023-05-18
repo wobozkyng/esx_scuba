@@ -65,7 +65,7 @@ ESX.RegisterInput('scubalight', 'Turn Scuba Light On/Off', 'keyboard', Config.sc
         end
     end
 end, function()
-    
+
 end)
 
 if Config.OxInventory then
