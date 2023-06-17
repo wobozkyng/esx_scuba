@@ -35,6 +35,8 @@ Config.maleScubaMaskVariation = 26
 Config.femaleScubaMaskVariation = 28
 Config.maleSwimFins = 67
 Config.femaleSwimFins = 70
+Config.maleNakedShirt = 14 -- shirtless t-shirt variants
+Config.femaleNakedShirt = 15 -- shirtless t-shirt variants
 
 Config.fulltank = 400 -- full oxygen tank capacity, measure duration in seconds
 

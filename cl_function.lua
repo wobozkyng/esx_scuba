@@ -66,7 +66,7 @@ function applyScuba(name, playerPed, pedModel)
             self.playAnim(playerPed)
             SetPedComponentVariation(playerPed, 8, isMale and Config.maleScubaVariation or isFemale and Config.femaleScubaVariation or 0, 0, 0)
             SetPedPropIndex(playerPed, 1, isMale and Config.maleScubaMaskVariation or isFemale and Config.femaleScubaMaskVariation or 0, 0, 0)
-            SetPedComponentVariation(playerPed, 3, isMale and 14 or isFemale and 15 or 14, 0, 0)
+            SetPedComponentVariation(playerPed, 3, isMale and Config.maleNakedShirt or isFemale and Config.femaleNakedShirt or 14, 0, 0)
         end
         function self.resetScuba(hard)
             if saved_components[name] then
