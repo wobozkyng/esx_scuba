@@ -23,7 +23,7 @@ RegisterNetEvent('esx_scuba:oxygenHandle', function(type, value) --event to hand
         return sendnotification(TranslateCap('no_tank'))
     end
     if type == 'refill' then
-        oxy_value = value and value*4 or 400
+        oxy_value = value and value/100*Config.fulltank or Config.fulltank
         sendnotification(TranslateCap('tank_loaded', oxy_value/Config.fulltank*100, '%'))
         if Config.OxInventory then
             TriggerServerEvent("esx_scuba:updateMetadata", {
