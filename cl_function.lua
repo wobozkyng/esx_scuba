@@ -59,14 +59,11 @@ function applyScuba(name, playerPed, pedModel)
                 GetPedDrawableVariation(playerPed, 8),
                 GetPedTextureVariation(playerPed, 8),
                 GetPedPropIndex(playerPed, 1),
-                GetPedPropTextureIndex(playerPed, 1),
-                GetPedDrawableVariation(playerPed, 3),
-                GetPedTextureVariation(playerPed, 3),
+                GetPedPropTextureIndex(playerPed, 1)
             }
             self.playAnim(playerPed)
             SetPedComponentVariation(playerPed, 8, isMale and Config.maleScubaVariation or isFemale and Config.femaleScubaVariation or 0, 0, 0)
             SetPedPropIndex(playerPed, 1, isMale and Config.maleScubaMaskVariation or isFemale and Config.femaleScubaMaskVariation or 0, 0, 0)
-            SetPedComponentVariation(playerPed, 3, isMale and Config.maleNakedShirt or isFemale and Config.femaleNakedShirt or 14, 0, 0)
         end
         function self.resetScuba(hard)
             if saved_components[name] then
@@ -75,7 +72,6 @@ function applyScuba(name, playerPed, pedModel)
                 end
                 SetPedComponentVariation(playerPed, 8, saved_components[name][1], saved_components[name][2], 0)
                 SetPedPropIndex(playerPed, 1, saved_components[name][3], saved_components[name][4], 0)
-                SetPedComponentVariation(playerPed, 3, saved_components[name][5], saved_components[name][6], 0)
             end
         end
     end
