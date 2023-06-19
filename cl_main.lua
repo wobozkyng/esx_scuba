@@ -76,7 +76,7 @@ if Config.OxInventory then
             return
         end
         current_scuba = current_scuba and nil or slot.slot
-        oxy_value = slot.metadata?.oxy and slot.metadata.oxy*4 or 0
+        oxy_value = slot.metadata?.oxy and slot.metadata.oxy/100*Config.fulltank or 0
         if current_scuba then
             TriggerServerEvent("esx_scuba:equip", {slot = slot.slot})
             TriggerServerEvent("esx_scuba:updateMetadata", {
